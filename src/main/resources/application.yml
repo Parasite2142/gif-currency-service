@@ -1,0 +1,20 @@
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggingLevel: basic
+      currencyClient:
+        defaultRequestHeaders:
+          Authorization: Token ${api.currency.appId}
+
+api:
+  currency:
+    appId: a82b612ac4ba437d9342415c6326c192
+    url: https://openexchangerates.org
+  gif:
+    apiId:
+    url:
+server:
+  port: 8081
