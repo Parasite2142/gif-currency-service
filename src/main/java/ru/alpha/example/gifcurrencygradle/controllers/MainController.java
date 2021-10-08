@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.alpha.example.gifcurrencygradle.entites.CurrencyInfoMap;
-import ru.alpha.example.gifcurrencygradle.feignclients.CurrencyClient;
+import ru.alpha.example.gifcurrencygradle.feignclients.FeignCurrencyClient;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -13,11 +13,11 @@ import java.time.format.DateTimeFormatter;
 @RequiredArgsConstructor
 public class MainController {
 
-    private final CurrencyClient currencyClient;
+    private final FeignCurrencyClient feignCurrencyClient;
 
     @GetMapping("/")
     CurrencyInfoMap test() {
-        return currencyClient.getHistoricalCurrencyInfoForDate(LocalDate.now().minusDays(1));
+        return feignCurrencyClient.getHistoricalCurrencyInfoForDate(LocalDate.now().minusDays(1));
     }
 
     public static void main(String[] args) {
