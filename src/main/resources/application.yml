@@ -8,13 +8,20 @@ feign:
       currencyClient:
         defaultRequestHeaders:
           Authorization: Token ${api.currency.appId}
+      giphyApiClient:
+        defaultQueryParameters:
+          api_key: ${api.giphy-api.apiId}
 
 api:
   currency:
     appId: a82b612ac4ba437d9342415c6326c192
     url: https://openexchangerates.org
-  gif:
-    apiId:
-    url:
+  giphy-api:
+    apiId: N91NCjr4BaCDtcQ50XEBoBa6M5Gp40YP
+    url: https://api.giphy.com
+  giphy-media:
+    url: https://media2.giphy.com
 server:
   port: 8081
+
+baseCurrency: RUB
