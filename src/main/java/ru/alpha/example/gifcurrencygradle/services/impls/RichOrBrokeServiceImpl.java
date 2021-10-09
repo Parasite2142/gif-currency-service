@@ -1,5 +1,6 @@
 package ru.alpha.example.gifcurrencygradle.services.impls;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,6 @@ public class RichOrBrokeServiceImpl implements RichOrBrokeGifService {
     @PostConstruct
     void init() {
         update();
-
         Assert.isTrue(dayBeforeDataReference.get().contains(baseCurrency), "Unknown currency code: " + baseCurrency);
     }
 
@@ -53,7 +53,8 @@ public class RichOrBrokeServiceImpl implements RichOrBrokeGifService {
     public byte[] getGifDependingOnCurrencyChangeToBaseCurrency(String currency) {
         Assert.isTrue(!currency.equalsIgnoreCase(baseCurrency), "Can't compare value change of same currency");
         // If value of passed currency went up relative to base currency get Rich gif object else Broke
-        GiphyObject giphyObject = feignGiphyClient.getRandomGiphyObjectByWealthTag(checkWealthChangeForCurrency(currency));
+        GiphyObject giphyObject =
+                feignGiphyClient.getRandomGiphyObjectByWealthTag(checkWealthChangeForCurrency(currency));
 
         return feignGiphyMediaClient.getGifById(giphyObject.getId());
     }
@@ -83,12 +84,12 @@ public class RichOrBrokeServiceImpl implements RichOrBrokeGifService {
         log.info("Base currency: " + baseCurrency + "\n" +
                 "       Old base currency value: " + dayBeforeData.getValueForCurrencyName(baseCurrency) + "\n" +
                 "       Current base currency value: " + currentData.getValueForCurrencyName(baseCurrency) + "\n" +
-                "       Base currencyChange relative to USD: " + baseCurrencyChange);
+                "       Base currencyChange relative to USD: " + baseCurrencyChange + "%");
 
         log.info("Passed currency: " + currency + "\n" +
                 "       Old passed currency value: " + dayBeforeData.getValueForCurrencyName(currency) + "\n" +
                 "       Current passed currency value: " + currentData.getValueForCurrencyName(currency) + "\n" +
-                "       Passed currencyChange relative to USD: " + currencyChange);
+                "       Passed currencyChange relative to USD: " + currencyChange + "%");
 
         return WealthStatus.getInstance(currencyChange.compareTo(baseCurrencyChange) > 0);
     }

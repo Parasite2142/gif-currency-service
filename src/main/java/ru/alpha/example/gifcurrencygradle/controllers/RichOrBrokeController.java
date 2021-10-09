@@ -15,7 +15,7 @@ import java.util.Collection;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "/api/v1/rich-broke")
-public class RichOrBrokenController {
+public class RichOrBrokeController {
 
     private final RichOrBrokeGifService richOrBrokeGifService;
 

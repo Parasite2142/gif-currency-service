@@ -2,14 +2,13 @@ package ru.alpha.example.gifcurrencygradle.entites;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.util.Collection;
-
-@AllArgsConstructor
+@AllArgsConstructor(staticName = "create")
 @NoArgsConstructor
-@EqualsAndHashCode
-@ToString
+@Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GiphyObject {
 
@@ -21,8 +20,13 @@ public class GiphyObject {
     }
 
     @Data
+    @AllArgsConstructor(staticName = "create")
+    @NoArgsConstructor
     private static class GiphyData {
-        //        private String type;
         private String id;
+    }
+
+    public static GiphyObject create(String id) {
+        return GiphyObject.create(GiphyData.create(id));
     }
 }
