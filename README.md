@@ -12,7 +12,7 @@
 
 ## Сборка и запуск
 1. Easy-way: в корне проекта gradle clean bootJar, java -jar .\gif-currency-service-0.0.1-SNAPSHOT.jar<br/> -Dserver.port=8888 и другие необходимые конфиги, либо редактировать application.yaml
-2. Dockerfile: в корне проекта docker build image -t name:tag . <br/> После того как образ был сделан <br/>docker container run --rm <br/>-e "api.currency.appId=ваш id из 1.1" <br/> -e "api.giphy-api.apiId=ваш id из 1.2" <br/>-e "server.port=8082" <br/> -p 8082:8082 docker.io/library/name:tag
+2. Dockerfile: в корне проекта docker image build -t name:tag . <br/> После того как образ был сделан <br/>docker container run --rm <br/>-e "api.currency.appId=ваш id из 1.1" <br/> -e "api.giphy-api.apiId=ваш id из 1.2" <br/>-e "server.port=8082" <br/> -p 8082:8082 docker.io/library/name:tag
 3. boot-docker-image: в корне проекта gradle bootBuildImage запуск контейнера идентичен примеру выше <br/> image будет иметь подобно название docker.io/library/gif-currency-service:0.0.1-SNAPSHOT p.s версия может отличаться
 
 
