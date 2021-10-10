@@ -50,7 +50,7 @@ public class RichOrBrokeServiceImpl implements RichOrBrokeGifService {
 
     @Override
     public byte[] getGifDependingOnCurrencyChangeToBaseCurrency(String currency) {
-        Assert.isTrue(!currency.equalsIgnoreCase(baseCurrency), "Can't compare value change of same currency");
+//        Assert.isTrue(!currency.equalsIgnoreCase(baseCurrency), "Can't compare value change of same currency");
         // If value of passed currency went up relative to base currency get Rich gif object else Broke
         GiphyObject giphyObject =
                 feignGiphyClient.getRandomGiphyObjectByWealthTag(checkWealthChangeForCurrency(currency));
@@ -70,12 +70,12 @@ public class RichOrBrokeServiceImpl implements RichOrBrokeGifService {
 
         CurrencyInfoMap currentData = feignCurrencyClient.getLatestCurrencyInfo();
         // calculating percentageChange of base currency
-        BigDecimal baseCurrencyChange = checkPercentageChange(
+        BigDecimal baseCurrencyChange = checkPercentageChangeBetweenTwoValue(
                 dayBeforeData.getValueForCurrencyName(baseCurrency),
                 currentData.getValueForCurrencyName(baseCurrency)
         );
         // calculating percentageChange of passed currency
-        BigDecimal currencyChange = checkPercentageChange(
+        BigDecimal currencyChange = checkPercentageChangeBetweenTwoValue(
                 dayBeforeData.getValueForCurrencyName(currency),
                 currentData.getValueForCurrencyName(currency)
         );
@@ -93,7 +93,7 @@ public class RichOrBrokeServiceImpl implements RichOrBrokeGifService {
         return WealthStatus.getInstance(currencyChange.compareTo(baseCurrencyChange) > 0);
     }
 
-    private static BigDecimal checkPercentageChange(BigDecimal oldValue, BigDecimal newValue) {
+    private static BigDecimal checkPercentageChangeBetweenTwoValue(BigDecimal oldValue, BigDecimal newValue) {
         if (oldValue.compareTo(newValue) < 0) {
             return newValue.subtract(oldValue)
                     .divide(oldValue, 4, RoundingMode.HALF_UP)

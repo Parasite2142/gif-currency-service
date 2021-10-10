@@ -132,11 +132,11 @@ class RichOrBrokeServiceImplTest {
         assertThat(exception.getMessage()).isEqualTo("Unknown currency code: " + wrongCurrency);
     }
 
-    @Test
-    void throwsErrorBaseCurrency() {
-        Exception exception = assertThrows(IllegalArgumentException.class,
-                () -> richOrBrokeGifService.getGifDependingOnCurrencyChangeToBaseCurrency("RUB"));
-
-        assertThat(exception.getMessage()).isEqualTo("Can't compare value change of same currency");
-    }
+//    @Test
+//    void throwsErrorBaseCurrency() {
+//        Exception exception = assertThrows(IllegalArgumentException.class,
+//                () -> richOrBrokeGifService.getGifDependingOnCurrencyChangeToBaseCurrency("RUB"));
+//
+//        assertThat(exception.getMessage()).isEqualTo("Can't compare value change of same currency");
+//    }
 }
