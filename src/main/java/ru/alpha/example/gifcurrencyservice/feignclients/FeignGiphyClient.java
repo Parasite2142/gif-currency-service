@@ -1,11 +1,11 @@
-package ru.alpha.example.gifcurrencygradle.feignclients;
+package ru.alpha.example.gifcurrencyservice.feignclients;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.alpha.example.gifcurrencygradle.entites.GiphyObject;
-import ru.alpha.example.gifcurrencygradle.entites.enums.WealthStatus;
+import ru.alpha.example.gifcurrencyservice.entites.GiphyObject;
+import ru.alpha.example.gifcurrencyservice.entites.enums.WealthStatus;
 
 @FeignClient(name = "giphyApiClient", url = "${api.giphy-api.url}", primary = false)
 public interface FeignGiphyClient {

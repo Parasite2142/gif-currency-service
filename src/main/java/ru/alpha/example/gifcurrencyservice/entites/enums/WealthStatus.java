@@ -1,4 +1,4 @@
-package ru.alpha.example.gifcurrencygradle.entites.enums;
+package ru.alpha.example.gifcurrencyservice.entites.enums;
 
 public enum WealthStatus {
     RICH, BROKE;

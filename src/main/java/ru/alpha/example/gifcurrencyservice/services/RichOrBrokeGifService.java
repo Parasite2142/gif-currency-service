@@ -1,4 +1,4 @@
-package ru.alpha.example.gifcurrencygradle.services;
+package ru.alpha.example.gifcurrencyservice.services;
 
 import java.util.Collection;
 

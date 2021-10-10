@@ -1,4 +1,4 @@
-package ru.alpha.example.gifcurrencygradle.services.impls;
+package ru.alpha.example.gifcurrencyservice.services.impls;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,12 +8,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.util.ReflectionTestUtils;
-import ru.alpha.example.gifcurrencygradle.entites.CurrencyInfoMap;
-import ru.alpha.example.gifcurrencygradle.entites.GiphyObject;
-import ru.alpha.example.gifcurrencygradle.entites.enums.WealthStatus;
-import ru.alpha.example.gifcurrencygradle.feignclients.FeignCurrencyClient;
-import ru.alpha.example.gifcurrencygradle.feignclients.FeignGiphyClient;
-import ru.alpha.example.gifcurrencygradle.feignclients.FeignGiphyMediaClient;
+import ru.alpha.example.gifcurrencyservice.entites.CurrencyInfoMap;
+import ru.alpha.example.gifcurrencyservice.entites.GiphyObject;
+import ru.alpha.example.gifcurrencyservice.entites.enums.WealthStatus;
+import ru.alpha.example.gifcurrencyservice.feignclients.FeignCurrencyClient;
+import ru.alpha.example.gifcurrencyservice.feignclients.FeignGiphyClient;
+import ru.alpha.example.gifcurrencyservice.feignclients.FeignGiphyMediaClient;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

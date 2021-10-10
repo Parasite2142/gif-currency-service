@@ -1,4 +1,4 @@
-package ru.alpha.example.gifcurrencygradle.entites;
+package ru.alpha.example.gifcurrencyservice.entites;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

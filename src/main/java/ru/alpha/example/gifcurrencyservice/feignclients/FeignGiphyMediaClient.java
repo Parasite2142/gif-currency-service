@@ -1,4 +1,4 @@
-package ru.alpha.example.gifcurrencygradle.feignclients;
+package ru.alpha.example.gifcurrencyservice.feignclients;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;

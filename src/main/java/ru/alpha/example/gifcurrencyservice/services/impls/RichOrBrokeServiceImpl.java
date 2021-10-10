@@ -1,6 +1,5 @@
-package ru.alpha.example.gifcurrencygradle.services.impls;
+package ru.alpha.example.gifcurrencyservice.services.impls;
 
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,13 +7,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
-import ru.alpha.example.gifcurrencygradle.entites.CurrencyInfoMap;
-import ru.alpha.example.gifcurrencygradle.entites.GiphyObject;
-import ru.alpha.example.gifcurrencygradle.entites.enums.WealthStatus;
-import ru.alpha.example.gifcurrencygradle.feignclients.FeignCurrencyClient;
-import ru.alpha.example.gifcurrencygradle.feignclients.FeignGiphyClient;
-import ru.alpha.example.gifcurrencygradle.feignclients.FeignGiphyMediaClient;
-import ru.alpha.example.gifcurrencygradle.services.RichOrBrokeGifService;
+import ru.alpha.example.gifcurrencyservice.entites.CurrencyInfoMap;
+import ru.alpha.example.gifcurrencyservice.entites.GiphyObject;
+import ru.alpha.example.gifcurrencyservice.entites.enums.WealthStatus;
+import ru.alpha.example.gifcurrencyservice.feignclients.FeignCurrencyClient;
+import ru.alpha.example.gifcurrencyservice.feignclients.FeignGiphyClient;
+import ru.alpha.example.gifcurrencyservice.feignclients.FeignGiphyMediaClient;
+import ru.alpha.example.gifcurrencyservice.services.RichOrBrokeGifService;
 
 import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
